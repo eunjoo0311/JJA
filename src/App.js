@@ -1,4 +1,9 @@
-function App() {
-    return <div>hello worx ld</div>;
+import React from 'react';
+
+export default function App() {
+    return (
+        <>
+            <div>hello worx ld</div>
+        </>
+    );
 }
-export default App;
