@@ -1,9 +1,11 @@
 import React from 'react';
+import { appRouter } from './pages/Router';
+import { RouterProvider } from 'react-router-dom';
 
 export default function App() {
     return (
         <>
-            <div>hello worx ld</div>
+            <RouterProvider router={appRouter} fallbackElement={null} />
         </>
     );
 }
