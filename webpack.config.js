@@ -4,10 +4,13 @@ module.exports = {
     output: {
         filename: './dist/bundle.js',
     },
+    resolve: {
+        extensions: ['.js', '.jsx'],
+    },
     module: {
         rules: [
             {
-                test: /\.(js|jsx)$/,
+                test: /\.jsx?$/,
                 loader: 'babel-loader',
                 exclude: /node_modules/,
                 options: {
@@ -28,5 +31,6 @@ module.exports = {
         host: 'localhost',
         port: 3000,
         open: true,
+        historyApiFallback: true,
     },
 };
