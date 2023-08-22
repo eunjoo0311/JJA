@@ -25,6 +25,10 @@ module.exports = {
                     minimize: true,
                 },
             },
+            {
+                test: /\.svg$/,
+                use: 'file-loader',
+              },
         ],
     },
     devServer: {
