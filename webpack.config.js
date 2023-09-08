@@ -25,6 +25,13 @@ module.exports = {
                     minimize: true,
                 },
             },
+            {
+                test: /\.(png|jpe?g|gif)$/,
+                loader: 'file-loader',
+                options: {
+                    name: '[path][name].[ext]',
+                },
+            },
         ],
     },
     devServer: {
