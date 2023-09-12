@@ -6,6 +6,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import left from '../../../assets/images/arrow-left-circle.svg';
 import right from '../../../assets/images/arrow-right-circle.svg';
 import menu from '../../../assets/images/menu.svg';
+import titleList from '../../../data/TitleList';
 
 const Bookmarked = styled.div`
     position: relative;
@@ -88,6 +89,11 @@ const Script = styled.p`
     font-size: ${({ theme }) => theme.fontSize.base};
     line-height: 160%;
     overflow-y: hidden;
+
+    ::selection {
+        background-color: ${({ theme }) =>
+            theme.colors.yellow}; /* 원하는 색상으로 변경 */
+    }
 `;
 
 const Page = styled.p`
@@ -97,9 +103,17 @@ const Page = styled.p`
     font-size: ${({ theme }) => theme.fontSize.xs};
     font-weight: 600;
 `;
+
+const getTitleById = id => {
+    const titleInfo = titleList.find(item => item.id === id);
+    return titleInfo ? titleInfo.title : '에러';
+};
 export default function ChapterPage() {
     const navigate = useNavigate();
     const location = useLocation();
+
+    const titleId = 5;
+    const title = getTitleById(titleId);
 
     function onClickMenu() {
         navigate('/:bookname/index');
@@ -122,7 +136,7 @@ export default function ChapterPage() {
                 />
             </LeftBtn>
             <Contents>
-                <Title>new와 생성자</Title>
+                <Title>{title}</Title>
                 <Script>
                     객체 리터럴을 사용하면 객체를 쉽게 만들 수 있습니다. 비슷한
                     객체를 여러 개 만들어야 하는 경우가 생길때에는 객체 리터럴
