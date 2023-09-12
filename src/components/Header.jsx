@@ -47,7 +47,7 @@ export default function Header() {
     }
 
     function goGithub() {
-        const githubURL = 'https://github.com/Jobs-Js/JJA';
+        const githubURL = 'https://github.com/Jobs-Js/JavaScript-Study';
         window.open(githubURL, '_blank');
         console.log('깃허브 이동?');
     }
