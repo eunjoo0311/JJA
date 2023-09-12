@@ -32,6 +32,10 @@ module.exports = {
                     name: '[path][name].[ext]',
                 },
             },
+            {
+                test: /\.svg$/,
+                use: 'file-loader',
+            },
         ],
     },
     devServer: {
