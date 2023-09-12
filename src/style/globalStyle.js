@@ -1,6 +1,25 @@
 import { css } from '@emotion/react';
 
-const globalStyle = css`
+const GlobalStyle = css`
+    @font-face {
+        font-family: 'Hiragino Pro';
+        font-weight: 300;
+        font-display: swap;
+        src:
+            local('Hiragino Kaku Gothic Pro W3'),
+            url('../assets/fonts/Hiragino\ Kaku\ Gothic\ Pro\ W3.otf')
+                format('opentype');
+    }
+    @font-face {
+        font-family: 'Hiragino Pro';
+        font-weight: 600;
+        font-display: swap;
+        src:
+            local('Hiragino Kaku Gothic Pro W6'),
+            url('../assets/fonts/Hiragino\ Kaku\ Gothic\ Pro\ W6.otf')
+                format('opentype');
+    }
+
     html,
     body,
     div,
@@ -89,10 +108,6 @@ const globalStyle = css`
         font: inherit;
         vertical-align: baseline;
     }
-
-    body {
-        line-height: 1;
-    }
     ol,
     ul {
         list-style: none;
@@ -121,6 +136,7 @@ const globalStyle = css`
     }
     body {
         font-family: 'Hiragino Pro', 'Apple SD Gothic Neo', sans-serif;
+        background-color: #2d2d2d;
     }
     a {
         text-decoration: none;
@@ -131,6 +147,7 @@ const globalStyle = css`
         padding: 0;
         background: transparent;
         font-family: inherit;
+        color: inherit;
         cursor: pointer;
     }
     img {
@@ -145,6 +162,7 @@ const globalStyle = css`
         border: unset;
         font: inherit;
     }
+
     .a11y {
         clip: rect(1px, 1px, 1px, 1px);
         clip-path: inset(50%);
@@ -157,4 +175,4 @@ const globalStyle = css`
     }
 `;
 
-export default globalStyle;
+export default GlobalStyle;
