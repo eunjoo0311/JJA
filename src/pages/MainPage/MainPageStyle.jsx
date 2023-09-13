@@ -147,5 +147,6 @@ export const BookItem = styled.li`
     h2 {
         font-size: ${({ theme }) => theme.fontSize.large};
         line-height: 160%;
+        font-weight: 600;
     }
 `;
