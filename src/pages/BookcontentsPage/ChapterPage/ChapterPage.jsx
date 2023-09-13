@@ -6,8 +6,6 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import left from '../../../assets/images/arrow-left-circle.svg';
 import right from '../../../assets/images/arrow-right-circle.svg';
 import menu from '../../../assets/images/menu.svg';
-import titleList from '../../../data/TitleList';
-import ppt from '../../../assets/images/ppt.png';
 import { Rnd } from 'react-rnd';
 
 const Bookmarked = styled.div`
@@ -112,37 +110,20 @@ const Page = styled.p`
 `;
 
 const Box = () => (
-    // <img
-    //     src="https://i.ibb.co/JmRZXtw/015.png"
-    //     // src=""
-    //     className="box"
-    //     style={{ height: '100%', backgroundColor: 'black', useSelect: 'none' }}
-    // ></img>
     <div className="box" style={{ height: '100%' }}>
-        <article className="media">
-            <div className="media-left">
-                <figure className="ppt">
-                    <img
-                        src="https://i.ibb.co/JmRZXtw/015.png"
-                        draggable="false"
-                        alt="ppt 장표"
-                    />
-                </figure>
-            </div>
+        <article className="ppt">
+            <img
+                src="https://i.ibb.co/JmRZXtw/015.png"
+                draggable="false"
+                alt="ppt 장표"
+            />
         </article>
     </div>
 );
 
-const getTitleById = id => {
-    const titleInfo = titleList.find(item => item.id === id);
-    return titleInfo ? titleInfo.title : '에러';
-};
 export default function ChapterPage() {
     const navigate = useNavigate();
     const location = useLocation();
-
-    const titleId = 5;
-    const title = getTitleById(titleId);
 
     const onClickMenu = () => {
         navigate('/:bookname/index');
@@ -165,7 +146,7 @@ export default function ChapterPage() {
                 />
             </LeftBtn>
             <Contents>
-                <Title>{title}</Title>
+                <Title>this</Title>
                 <Script>
                     객체 리터럴을 사용하면 객체를 쉽게 만들 수 있습니다. 비슷한
                     객체를 여러 개 만들어야 하는 경우가 생길때에는 객체 리터럴
@@ -175,7 +156,6 @@ export default function ChapterPage() {
                 </Script>
                 <Page>1/20</Page>
             </Contents>
-            {/* <Ppt src={ppt} /> */}
             <div
                 style={{
                     width: '800px',
@@ -191,6 +171,8 @@ export default function ChapterPage() {
                     }}
                     minWidth={500}
                     minHeight={270}
+                    maxWidth={830}
+                    maxHeight={480}
                     bounds="window"
                 >
                     <Box />
