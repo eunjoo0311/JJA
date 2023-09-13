@@ -66,6 +66,18 @@ const fadeInBook = keyframes`
     }
 `;
 
+const fadeInBookForLongHeight = keyframes`
+    0%{
+        transform: scale(1.1) rotate(0);
+    }
+    100%{
+        position: absolute;
+        left: 50%;
+        top: 43%;
+        transform: translate(-50%,-50%) scale(1.0);
+    }
+`;
+
 export const BookItem = styled.li`
     display: inline-block;
     margin: 60px 2px 80px 0;
@@ -77,6 +89,13 @@ export const BookItem = styled.li`
     &:nth-of-type(3) {
         transform: rotate(16deg);
         margin: 0 90px 0 88px;
+
+        @media screen and (min-height: 925px) {
+            transform: rotate(16deg) translate(16px, 60px);
+            &:hover {
+                transform: scale(1.1) translate(16px, 50px);
+            }
+        }
     }
     &:nth-of-type(9) {
         transform: rotate(-11deg);
@@ -90,6 +109,9 @@ export const BookItem = styled.li`
             isFadeOut &&
             css`
                 animation: ${fadeInBook} 0.5s forwards;
+                @media screen and (min-height: 925px) {
+                    animation: ${fadeInBookForLongHeight} 0.5s forwards;
+                }
             `};
     }
 
