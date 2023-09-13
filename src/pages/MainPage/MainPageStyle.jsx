@@ -62,7 +62,19 @@ const fadeInBook = keyframes`
     100%{
         position: absolute;
         left: 50%;
-        transform: translateX(-50%) scale(1.0);
+        transform: translate(-50%,0) scale(1.0);
+    }
+`;
+
+const fadeInBookForLongHeight = keyframes`
+    0%{
+        transform: scale(1.1) rotate(0);
+    }
+    100%{
+        position: absolute;
+        left: 50%;
+        top: 43%;
+        transform: translate(-50%,-50%) scale(1.0);
     }
 `;
 
@@ -97,6 +109,9 @@ export const BookItem = styled.li`
             isFadeOut &&
             css`
                 animation: ${fadeInBook} 0.5s forwards;
+                @media screen and (min-height: 925px) {
+                    animation: ${fadeInBookForLongHeight} 0.5s forwards;
+                }
             `};
     }
 
