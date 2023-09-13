@@ -13,12 +13,12 @@ export default function MainPage() {
         setIsFadeOut(true);
         setSelectedBook(index);
         const timer = () =>
-            setTimeout(() => {
-                navigate(`/${content.title.replaceAll(' ', '-')}/index`, {
-                    state: content,
-                });
-            }, 500);
-        timer();
+            // setTimeout(() => {
+            //     navigate(`/${content.title.replaceAll(' ', '-')}/index`, {
+            //         state: content,
+            //     });
+            // }, 500);
+            timer();
         return () => {
             clearTimeout(timer);
         };
