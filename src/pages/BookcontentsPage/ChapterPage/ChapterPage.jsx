@@ -8,6 +8,7 @@ import right from '../../../assets/images/arrow-right-circle.svg';
 import menu from '../../../assets/images/menu.svg';
 import titleList from '../../../data/TitleList';
 import ppt from '../../../assets/images/ppt.png';
+import { Rnd } from 'react-rnd';
 
 const Bookmarked = styled.div`
     position: relative;
@@ -110,15 +111,27 @@ const Page = styled.p`
     font-weight: 600;
 `;
 
-const Ppt = styled.img`
-    width: 620px;
-    content: '';
-    position: absolute;
-    top: 60%;
-    left: 40%;
-    z-index: 2;
-    cursor: move;
-`;
+const Box = () => (
+    // <img
+    //     src="https://i.ibb.co/JmRZXtw/015.png"
+    //     // src=""
+    //     className="box"
+    //     style={{ height: '100%', backgroundColor: 'black', useSelect: 'none' }}
+    // ></img>
+    <div className="box" style={{ height: '100%' }}>
+        <article className="media">
+            <div className="media-left">
+                <figure className="ppt">
+                    <img
+                        src="https://i.ibb.co/JmRZXtw/015.png"
+                        draggable="false"
+                        alt="ppt 장표"
+                    />
+                </figure>
+            </div>
+        </article>
+    </div>
+);
 
 const getTitleById = id => {
     const titleInfo = titleList.find(item => item.id === id);
@@ -130,47 +143,6 @@ export default function ChapterPage() {
 
     const titleId = 5;
     const title = getTitleById(titleId);
-
-    const [isDragging, setIsDragging] = useState(false);
-    const [pptPosition, setPptPosition] = useState({ x: 400, y: 400 });
-    const pptRef = useRef(null);
-    const offset = useRef({ x: 0, y: 0 });
-
-    const handleMouseDown = e => {
-        e.preventDefault();
-
-        const pptElement = pptRef.current;
-        if (pptElement) {
-            setIsDragging(true);
-            offset.current = {
-                x: e.clientX - pptElement.offsetLeft,
-                y: e.clientY - pptElement.offsetTop,
-            };
-            window.addEventListener('mousemove', handleMouseMove);
-            window.addEventListener('mouseup', handleMouseUp);
-        }
-    };
-
-    const handleMouseMove = e => {
-        if (!isDragging) return;
-
-        const pptElement = pptRef.current;
-        if (pptElement) {
-            const newX = e.clientX - offset.current.x;
-            const newY = e.clientY - offset.current.y;
-
-            setPptPosition({
-                x: newX,
-                y: newY,
-            });
-        }
-    };
-
-    const handleMouseUp = () => {
-        setIsDragging(false);
-        window.removeEventListener('mousemove', handleMouseMove);
-        window.removeEventListener('mouseup', handleMouseUp);
-    };
 
     const onClickMenu = () => {
         navigate('/:bookname/index');
@@ -203,18 +175,27 @@ export default function ChapterPage() {
                 </Script>
                 <Page>1/20</Page>
             </Contents>
-            <Ppt
-                src={ppt}
-                ref={pptRef}
-                onMouseDown={handleMouseDown}
-                onMouseMove={handleMouseMove}
-                onMouseUp={handleMouseUp}
-                isDragging={isDragging}
+            {/* <Ppt src={ppt} /> */}
+            <div
                 style={{
-                    left: `${pptPosition.x}px`,
-                    top: `${pptPosition.y}px`,
+                    width: '800px',
+                    height: '400px',
                 }}
-            />
+            >
+                <Rnd
+                    default={{
+                        x: -790,
+                        y: 355,
+                        width: 620,
+                        height: 348,
+                    }}
+                    minWidth={500}
+                    minHeight={270}
+                    bounds="window"
+                >
+                    <Box />
+                </Rnd>
+            </div>
         </Bookmarked>
     );
 }
