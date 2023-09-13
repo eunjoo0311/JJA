@@ -1,14 +1,13 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/react';
 import React from 'react';
-import github from '../assets/images/github.svg';
-import logo from '../assets/images/JJA.svg';
+import github from '../../assets/images/github.svg';
+import logo from '../../assets/images/JJA.svg';
 import styled from '@emotion/styled';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 const Wrapper = styled.nav`
     display: flex;
-    background-color: ${({ theme }) => theme.colors.darkGray};
     justify-content: space-between;
     align-items: center;
     padding: 58px 120px 0 120px;
@@ -47,7 +46,7 @@ export default function Header() {
     }
 
     function goGithub() {
-        const githubURL = 'https://github.com/Jobs-Js/JJA';
+        const githubURL = 'https://github.com/Jobs-Js/JavaScript-Study';
         window.open(githubURL, '_blank');
         console.log('깃허브 이동?');
     }

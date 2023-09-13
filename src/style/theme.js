@@ -20,8 +20,7 @@ const fontSize = {
     medium: '2rem',
     large: '2.6rem',
     xl: '3rem',
-    xxl: '3.4rem',
-    xxxl: '4rem',
+    xxl: '4rem',
 };
 
 const theme = {
