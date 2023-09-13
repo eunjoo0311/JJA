@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import data from '../../db/data.json';
-import bookShelfImg from '../../assets/image/bookShelf.png';
+import bookShelfImg from '../../assets/images/bookShelf.png';
 import { useNavigate } from 'react-router-dom';
 import { BookItem, BookList, MainWrapper } from './MainPageStyle';
 
