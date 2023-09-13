@@ -77,11 +77,6 @@ export const BookItem = styled.li`
     &:nth-of-type(3) {
         transform: rotate(16deg);
         margin: 0 90px 0 88px;
-
-        @media screen and (min-height: 925px) {
-            transition: translate 0s;
-            transform: rotate(16deg) translate(16px, 60px);
-        }
     }
     &:nth-of-type(9) {
         transform: rotate(-11deg);
