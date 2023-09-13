@@ -162,7 +162,7 @@ const GlobalStyle = css`
         font-size: 10px;
     }
     body {
-        font-family: 'Hiragino Pro','Pretendard', 'Apple SD Gothic Neo', sans-serif;
+        font-family: 'Hiragino Pro', 'Apple SD Gothic Neo', 'pretendard', sans-serif;
         background-color: #2d2d2d;
     }
     a {
