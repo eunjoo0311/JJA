@@ -12,6 +12,37 @@ import {
 import ArrowButton from '../../../components/ArrowButton/ArrowButton';
 
 export default function IndexPage() {
+    const { pathname, state } = useLocation();
+    const { id, title, indexData, color } = state;
+    const [isButtonShow, setIsButtonShow] = useState(false);
+    const [isMovetoChapter, setIsMovetoChapter] = useState(false);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const timer = () =>
+            setTimeout(() => {
+                setIsButtonShow(true);
+            }, 2600);
+        timer();
+        return clearTimeout(timer);
+    }, [isButtonShow]);
+
+    const handleClickChapterButton = chapter => {
+        setIsMovetoChapter(true);
+        const timer = () =>
+            setTimeout(() => {
+                navigate(
+                    `/${pathname.split('/')[1]}/${chapter
+                        .replaceAll(', ', ',')
+                        .replaceAll(' ', '-')
+                        .replaceAll('/', '-')}`,
+                    { state: chapter },
+                );
+            }, 500);
+        timer();
+        return clearTimeout(timer);
+    };
+
     return (
         <IndexPageWrapper>
             <BookBox isMovetoChapter={isMovetoChapter}>

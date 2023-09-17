@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import data from '../../db/data.json';
+import React, { useState } from 'react';
+import data from '../../db/chapter.json';
 import bookShelfImg from '../../assets/images/bookShelf.png';
 import { useNavigate } from 'react-router-dom';
 import { BookItem, BookList, MainWrapper } from './MainPageStyle';
