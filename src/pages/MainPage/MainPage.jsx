@@ -14,9 +14,12 @@ export default function MainPage() {
         setSelectedBook(index);
         const timer = () =>
             setTimeout(() => {
-                navigate(`/${content.title.replaceAll(' ', '-')}/index`, {
-                    state: content,
-                });
+                navigate(
+                    `/${content.title
+                        .replaceAll(' ', '-')
+                        .replaceAll('/', '-')}/index`,
+                    { state: content },
+                );
             }, 500);
         timer();
         return () => {
