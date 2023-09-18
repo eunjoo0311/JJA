@@ -1,4 +1,12 @@
 import { css } from '@emotion/react';
+import fontW3 from '../assets/fonts/HiraginoKakuGothicProW3.otf';
+import fontW6 from '../assets/fonts/HiraginoKakuGothicProW6.otf';
+import pretendardRegular from '../assets/fonts/Pretendard-Regular.otf'
+import pretendardRegular2 from '../assets/fonts/Pretendard-Regular.woff2'
+import pretendardBold from '../assets/fonts/Pretendard-Bold.otf'
+import pretendardBold2 from '../assets/fonts/Pretendard-Bold.woff'
+import pretendardBold3 from '../assets/fonts/Pretendard-Bold.woff2'
+
 
 const GlobalStyle = css`
     @font-face {
@@ -7,7 +15,7 @@ const GlobalStyle = css`
         font-display: swap;
         src:
             local('Hiragino Kaku Gothic Pro W3'),
-            url('../assets/fonts/Hiragino\ Kaku\ Gothic\ Pro\ W3.otf')
+            url(${fontW3})
                 format('opentype');
     }
     @font-face {
@@ -16,9 +24,28 @@ const GlobalStyle = css`
         font-display: swap;
         src:
             local('Hiragino Kaku Gothic Pro W6'),
-            url('../assets/fonts/Hiragino\ Kaku\ Gothic\ Pro\ W6.otf')
+            url(${fontW6})
                 format('opentype');
     }
+    @font-face {
+  font-family: 'Pretendard';
+  font-weight: 300;
+  font-display: swap;
+  src: local('Pretendard Regular'),
+    url(${pretendardRegular2}) format('font-woff2'),
+    url(${pretendardRegular}) format('opentype');
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  font-weight: 600;
+  font-display: swap;
+  src: local('Pretendard Bold'),
+    url(${pretendardBold3}) format('font-woff2'),
+    url(${pretendardBold2}) format('woff'),
+    url(${pretendardBold}) format('opentype');
+}
+
 
     html,
     body,
@@ -135,7 +162,7 @@ const GlobalStyle = css`
         font-size: 10px;
     }
     body {
-        font-family: 'Hiragino Pro', 'Apple SD Gothic Neo', sans-serif;
+        font-family: 'Hiragino Pro', 'Apple SD Gothic Neo', 'pretendard', sans-serif;
         background-color: #2d2d2d;
     }
     a {
