@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import data from '../../db/data.json';
+import React, { useState } from 'react';
+import data from '../../db/chapter.json';
 import bookShelfImg from '../../assets/images/bookShelf.png';
 import { useNavigate } from 'react-router-dom';
 import { BookItem, BookList, MainWrapper } from './MainPageStyle';
@@ -14,9 +14,12 @@ export default function MainPage() {
         setSelectedBook(index);
         const timer = () =>
             setTimeout(() => {
-                navigate(`/${content.title.replaceAll(' ', '-')}/index`, {
-                    state: content,
-                });
+                navigate(
+                    `/${content.title
+                        .replaceAll(' ', '-')
+                        .replaceAll('/', '-')}/index`,
+                    { state: content },
+                );
             }, 500);
         timer();
         return () => {
