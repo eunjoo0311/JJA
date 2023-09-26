@@ -1,27 +1,19 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
-import React from 'react';
 import styled from '@emotion/styled';
-import bookShelfImg from '../../assets/images/bookShelf.png';
 
 const InfoWrapper = styled.div`
     display: flex;
     flex-direction: column;
     position: relative;
-    height: calc(100vh - 104px);
     gap: 40px;
 `;
 
-const BookShelf = styled.img`
-    position: absolute;
-    bottom: 0;
-`;
-
 const Info = styled.p`
-    width: 100%;
+    width: clamp(calc(100% - 240px), calc(100% - 240px), 1200px);
     color: ${({ theme }) => theme.colors.white};
-    font-size: ${({ theme }) => theme.fontSize.medium};
-    padding: 0 120px;
+    font-size: ${({ theme }) => theme.fontSize.large};
+    margin: 0 auto;
 
     &:nth-of-type(1) {
         padding-top: 100px;
@@ -30,7 +22,6 @@ const Info = styled.p`
 export default function InformationPage() {
     return (
         <InfoWrapper>
-            <BookShelf src={bookShelfImg} />
             <Info>
                 JJA(JsJobs Archive)는 JJA(JsJobsArchive)는 'Js-Jobs'라는 스터디
                 그룹의 활동을 아카이빙하여 지속적인 학습과 지식 공유를 촉진하는
