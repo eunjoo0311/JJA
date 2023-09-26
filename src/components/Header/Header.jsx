@@ -39,7 +39,7 @@ export default function Header() {
 
     function goInfo() {
         if (location.pathname === '/info') {
-            navigate('/');
+            navigate(-1);
         } else {
             navigate('/info');
         }
