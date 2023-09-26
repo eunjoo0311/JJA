@@ -1,6 +1,5 @@
 {
     "반복문과 switch문": [
-        "https://i.ibb.co/RTdnNpx/switch-01.png",
         "https://i.ibb.co/dJ7KZxp/switch-02.png",
         "https://i.ibb.co/g92cqBR/switch-03.png",
         "https://i.ibb.co/vLrB0Rt/switch-04.png",
@@ -25,7 +24,6 @@
         "https://i.ibb.co/YhM2fGp/switch-23.png"
     ],
     "\"try catch\"와 에러 핸들링": [
-        "https://i.ibb.co/R6pDZsD/try-catch-01.png",
         "https://i.ibb.co/XDSfZ7B/try-catch-02.png",
         "https://i.ibb.co/zhm3Q2w/try-catch-03.png",
         "https://i.ibb.co/jWbMLCJ/try-catch-04.png",
@@ -43,7 +41,6 @@
     ],
 
     "배열과 메서드 2": [
-        "https://i.ibb.co/pQwzs4y/2-01.png",
         "https://i.ibb.co/7KjVHYC/2-02.png",
         "https://i.ibb.co/bKJwDYC/2-03.png",
         "https://i.ibb.co/LvDXjWy/2-04.png",
@@ -67,7 +64,6 @@
         "https://i.ibb.co/30gw74t/2-22.png"
     ],
     "변수의 유효범위와 클로저": [
-        "https://i.ibb.co/DwLHxhS/01.png",
         "https://i.ibb.co/zmxf1fW/02.png",
         "https://i.ibb.co/ry8pW2x/03.png",
         "https://i.ibb.co/4Tstr87/04.png",
@@ -97,7 +93,6 @@
         "https://i.ibb.co/Qj5zqJP/28.png"
     ],
     "클래스의 기본": [
-        "https://i.ibb.co/DRKTMf0/01.png",
         "https://i.ibb.co/54nz310/02.png",
         "https://i.ibb.co/R6VbWkC/03.png",
         "https://i.ibb.co/bsgbJP6/04.png",
@@ -110,7 +105,6 @@
         "https://i.ibb.co/DV2RnHw/11.png"
     ],
     "클래스의 상속": [
-        "https://i.ibb.co/pxkcxjb/01.png",
         "https://i.ibb.co/2YpTFnp/02.png",
         "https://i.ibb.co/tx6Tgf1/03.png",
         "https://i.ibb.co/CbJsdP3/04.png",
@@ -122,7 +116,6 @@
         "https://i.ibb.co/8sfC0FZ/10.png"
     ],
     "async와 await": [
-        "https://i.ibb.co/h7ZrwBw/async-await-01.png",
         "https://i.ibb.co/LZ9qHLK/async-await-02.png",
         "https://i.ibb.co/tb51xLm/async-await-03.png",
         "https://i.ibb.co/YjR1mc1/async-await-04.png",
@@ -133,7 +126,6 @@
         "https://i.ibb.co/tbZMjjN/async-await-09.png"
     ],
     "JSON과 메서드": [
-        "https://i.ibb.co/K5BGr5M/JSON-01.png",
         "https://i.ibb.co/18KL0MC/JSON-02.png",
         "https://i.ibb.co/QpPY3nX/JSON-03.png",
         "https://i.ibb.co/ryzHvF6/JSON-04.png",
@@ -157,7 +149,6 @@
         "https://i.ibb.co/tL1ZZVn/JSON-22.png"
     ],
     "new Function": [
-        "https://i.ibb.co/9c6CCkN/new-Function-01.png",
         "https://i.ibb.co/bvNnSkD/new-Function-02.png",
         "https://i.ibb.co/mSrYQ7b/new-Function-03.png",
         "https://i.ibb.co/S7hmTh2/new-Function-04.png",
@@ -169,7 +160,6 @@
         "https://i.ibb.co/JstBKJB/new-Function-10.png"
     ],
     "this": [
-        "https://i.ibb.co/ZxYBFGh/this-01.png",
         "https://i.ibb.co/xhjLjp5/this-02.png",
         "https://i.ibb.co/1mMGj7z/this-03.png",
         "https://i.ibb.co/m8jCRtX/this-04.png",
