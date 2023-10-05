@@ -50,9 +50,32 @@ export default function ChapterPage() {
     }, []);
 
     const contentData = new Map(Object.entries(content)).get(realChapter);
+    const [isMovetoIndex, setIsMovetoIndex] = useState(false);
 
     const onClickMenu = () => {
-        navigate('/:bookname/index');
+        setIsMovetoIndex(true);
+        const timer = () =>
+            setTimeout(() => {
+                navigate(`/${bookname}/index`, {
+                });
+            }, 400);
+        timer();
+        return clearTimeout(timer);
+    };
+
+    const onClickNextButton = () => {
+        if (pageNumber < pptImgString.length) {
+            navigate(`#${pageNumber + 1}`);
+        } else {
+            navigate('#1');
+        }
+    };
+    const onClickPrevButton = () => {
+        if (pageNumber > 1) {
+            navigate(`#${pageNumber - 1}`);
+        } else {
+            navigate(`#${pptImgString.length}`);
+        }
     };
 
     return (
