@@ -1,3 +1,5 @@
+import React, { useLayoutEffect, useState } from 'react';
+import { useNavigate, useLocation, useParams } from 'react-router-dom';
 import { Rnd } from 'react-rnd';
 import {
     Title,
@@ -17,7 +19,37 @@ import CircleButton from '../../../components/CircleButton/CircleButton';
 
 export default function ChapterPage() {
     const navigate = useNavigate();
-    const location = useLocation();
+    const { hash } = useLocation();
+    const { bookname, chapter } = useParams();
+    const realChapter = chapter.replaceAll('-', ' ');
+    const pageNumber = parseInt(hash.slice(1));
+
+    const selectedColor = chapterList.contentList.find(item =>
+        item.indexData.includes(realChapter),
+    )?.color;
+
+    const pptImgString = new Map(Object.entries(pptImg)).get(realChapter);
+    const [firstImageLoaded, setFirstImageLoaded] = useState(false);
+    const [pptImgData, setPptImgData] = useState([]);
+
+    const pptImgPreload = () => {
+        for (let i = 0; i < pptImgString.length; i++) {
+            const pptImg = new Image();
+            pptImg.src = pptImgString[i];
+            if (i === 0) {
+                pptImg.onload = () => {
+                    setFirstImageLoaded(true);
+                };
+            }
+            setPptImgData(prev => [...prev, pptImg]);
+        }
+    };
+
+    useLayoutEffect(() => {
+        pptImgPreload();
+    }, []);
+
+    const contentData = new Map(Object.entries(content)).get(realChapter);
 
     const onClickMenu = () => {
         navigate('/:bookname/index');
@@ -36,7 +68,10 @@ export default function ChapterPage() {
                     />
                 </LeftPage>
                 <RightPage>
+                    <Title>{realChapter}</Title>
+                    <Script>{contentData[pageNumber - 1]}</Script>
                     <PageNum>
+                        {pageNumber}/{pptImgString.length}
                     </PageNum>
                     <nav>
                         <CircleButton
@@ -66,6 +101,17 @@ export default function ChapterPage() {
                     bounds="window"
                 >
                     <article>
+                        {firstImageLoaded && (
+                            <img
+                                src={pptImgData[pageNumber - 1].src}
+                                draggable="false"
+                                alt="ppt 장표"
+                                style={{
+                                    boxShadow:
+                                        ' 0px 0px 14px rgba(50, 50, 50, 0.2)',
+                                }}
+                            />
+                        )}
                     </article>
                 </Rnd>
             </BookBox>
