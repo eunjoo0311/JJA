@@ -1,3 +1,5 @@
+const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
+
 module.exports = {
     mode: 'development',
     entry: './src/index.js',
@@ -33,6 +35,15 @@ module.exports = {
                 },
             },
             {
+                test: /\.(png|jpg|jpeg|gif|webp)$/i,
+                type: 'asset',
+                parser: {
+                    dataUrlCondition: {
+                        maxSize: 8 * 1024,
+                    },
+                },
+            },
+            {
                 test: /\.svg$/i,
                 type: 'asset',
                 resourceQuery: /url/,
@@ -43,7 +54,22 @@ module.exports = {
                 resourceQuery: { not: [/url/] },
                 use: ['@svgr/webpack', 'file-loader'],
             },
-            
+        ],
+    },
+    optimization: {
+        minimize: true,
+        minimizer: [
+            new ImageMinimizerPlugin({
+                test: /\.(png|jpe?g|gif)$/,
+                minimizer: {
+                    implementation: ImageMinimizerPlugin.imageminMinify,
+                    options: {
+                        plugins: [
+                            ['imagemin-optipng', { optimizationLevel: 1 }],
+                        ],
+                    },
+                },
+            }),
         ],
     },
     devServer: {
