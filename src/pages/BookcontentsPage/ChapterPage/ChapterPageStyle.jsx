@@ -1,114 +1,147 @@
 import styled from '@emotion/styled';
+import { css, keyframes } from '@emotion/react';
 
-const Bookmarked = styled.div`
+export const ChapterPageWrapper = styled.div`
+    @media screen and (min-height: 925px) {
+        height: calc(100vh - 104px);
+        width: 100vw;
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+    }
+`;
+
+const bookSlide = keyframes`
+    0%{
+        transform: translateX(64px);
+    }
+    100%{
+        transform: translateX(1098px);
+    }
+`;
+
+const bookSlideAnimate = p => css`
+    animation: ${p.isMovetoIndex &&
+    css`
+        ${bookSlide} 0.4s forwards;
+    `};
+`;
+
+export const BookBox = styled.div`
     position: relative;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    width: 1295px;
-    height: 640px;
-    background-color: ${({ theme }) => theme.colors.white};
-    border-width: 19px 26px 19px 0;
-    border-color: ${({ theme }) => theme.colors.yellow};
-    border-style: solid;
+    margin: 60px auto;
+    width: 1098px;
+    height: 680px;
+    padding: 20px 26px 20px 0;
+    background-color: ${p => p.theme.colors[p.color]};
     border-radius: 0px 12px 12px 0px;
-    margin-top: 55px;
+    transform: translateX(64px);
+    ${bookSlideAnimate};
 `;
 
-const Btn = styled.button`
-    width: 54px;
-    position: absolute;
-`;
-const MenuBtn = styled(Btn)`
-    content: '';
-    top: 74px;
-    left: 108px;
-`;
-
-const RightBtn = styled(Btn)`
-    content: '';
-    top: 74px;
-    right: 44px;
-`;
-
-const LeftBtn = styled(Btn)`
-    content: '';
-    top: 142px;
-    right: 44px;
-`;
-const Line = styled.span`
-    position: relative;
-    display: block;
-    width: 1px;
+const PageBox = styled.section`
+    width: 100%;
     height: 100%;
-    margin-left: 221px;
+    background-color: ${({ theme }) => theme.colors.white};
+    box-shadow:
+        inset 0px -1px 4px rgba(50, 50, 50, 0.1),
+        inset -1px 0px 4px rgba(150, 150, 150, 0.2),
+        0px 0px 14px rgba(50, 50, 50, 0.2);
+`;
+
+export const LeftPage = styled(PageBox)`
+    position: absolute;
+    height: calc(100% - 40px);
+    right: 100%;
 
     &::before {
-        background: linear-gradient(
-            to right,
-            transparent 0%,
-            rgba(0, 0, 0, 0.2) 46%,
-            rgba(0, 0, 0, 0.5) 49%,
-            rgba(0, 0, 0, 0.6) 50%,
-            rgba(0, 0, 0, 0.5) 51%,
-            rgba(0, 0, 0, 0.2) 52%,
-            transparent 100%
-        );
-        bottom: 0;
-        content: '';
-        left: 50%;
         position: absolute;
+        content: '';
+        top: -20px;
+        width: 100%;
+        height: calc(100% + 40px);
+        background: ${p => p.theme.colors[p.color]};
+        border-radius: 12px 0 0 12px;
+        z-index: -1;
+    }
+
+    &::after {
+        position: absolute;
+        content: '';
         top: 0;
-        transform: translate(-50%, 0);
-        width: 4em;
-        z-index: 1;
+        right: 0;
+        width: 40px;
+        height: 100%;
+        background: linear-gradient(
+            270deg,
+            rgba(217, 217, 217, 0.3) 0%,
+            rgba(217, 217, 217, 0) 100%
+        );
     }
 `;
 
-const Contents = styled.section`
-    position: relative;
-    margin: 79px 129px 73px 100px;
-    width: 835px;
-    height: 488px;
+export const menuButtonCss = css`
+    position: absolute;
+    top: 74px;
+    right: 34px;
 `;
-const Title = styled.h1`
+
+export const RightPage = styled(PageBox)`
+    position: relative;
+    padding: 74px 116px;
+
+    &::before {
+        position: absolute;
+        content: '';
+        top: 0;
+        left: 0;
+        width: 40px;
+        height: 100%;
+        background: linear-gradient(
+            90deg,
+            rgba(217, 217, 217, 0.3) 0%,
+            rgba(217, 217, 217, 0) 100%
+        );
+    }
+
+    nav {
+        position: absolute;
+        top: 74px;
+        right: 68px;
+
+        button {
+            display: block;
+            margin-bottom: 4px;
+        }
+    }
+`;
+export const highlight = p => css`
+    ::selection {
+        background-color: ${p.theme.colors.yellow};
+    }
+`;
+export const Title = styled.h2`
     font-size: ${({ theme }) => theme.fontSize.large};
     font-weight: 600;
-
-    ::selection {
-        background-color: ${({ theme }) => theme.colors.yellow};
-    }
+    ${highlight}
 `;
 
-const Script = styled.p`
-    height: 350px;
+export const Script = styled.p`
+    width: 800px;
     margin-top: 42px;
     font-size: ${({ theme }) => theme.fontSize.base};
     line-height: 160%;
     overflow-y: hidden;
-
-    ::selection {
-        background-color: ${({ theme }) => theme.colors.yellow};
-    }
+    ${highlight}
 `;
 
-const Page = styled.p`
-    position: absolute;
-    bottom: 0;
-    left: 0;
+export const PageNum = styled.p`
     font-size: ${({ theme }) => theme.fontSize.xs};
     font-weight: 600;
+    position: absolute;
+    bottom: 74px;
 `;
 
-export {
-    Bookmarked,
-    Btn,
-    MenuBtn,
-    RightBtn,
-    LeftBtn,
-    Line,
-    Contents,
-    Title,
-    Script,
-    Page,
-};
+export const prevButtonCss = css`
+    transform: rotate(180deg);
+`;
