@@ -12,20 +12,24 @@ import {
 import CircleButton from '../../../components/CircleButton/CircleButton';
 
 export default function IndexPage() {
-    const { pathname, state } = useLocation();
-    const { id, title, indexData, color } = state;
+    const { state } = useLocation();
     const [isButtonShow, setIsButtonShow] = useState(false);
     const [isMovetoChapter, setIsMovetoChapter] = useState(false);
+    const [isBeforeChapter] = useState(state);
     const navigate = useNavigate();
 
     useEffect(() => {
-        const timer = () =>
-            setTimeout(() => {
-                setIsButtonShow(true);
-            }, 2600);
-        timer();
-        return clearTimeout(timer);
-    }, [isButtonShow]);
+        if (!isBeforeChapter) {
+            const timer = () =>
+                setTimeout(() => {
+                    setIsButtonShow(true);
+                }, 2600);
+            timer();
+            return clearTimeout(timer);
+        } else {
+            setIsButtonShow(true);
+        }
+    }, [isBeforeChapter]);
 
     const handleClickChapterButton = chapter => {
         setIsMovetoChapter(true);
@@ -45,7 +49,10 @@ export default function IndexPage() {
 
     return (
         <IndexPageWrapper>
-            <BookBox isMovetoChapter={isMovetoChapter}>
+            <BookBox
+                isMovetoChapter={isMovetoChapter}
+                isBeforeChapter={isBeforeChapter}
+            >
                 <BookSpine bgUrl={`../img/spine/spine${id}.png`}>
                     <button>
                         <span>{String(id).padStart(2, '0')}</span>
@@ -55,6 +62,7 @@ export default function IndexPage() {
                 <BookCoverFront
                     bgUrl={`../img/cover/cover${id}.png`}
                     color={color}
+                    isBeforeChapter={isBeforeChapter}
                 >
                     <li>
                         <h2> {title}</h2>
