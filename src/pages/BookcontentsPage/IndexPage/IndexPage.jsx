@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import {
     BookSpine,
     BookBox,
@@ -9,10 +9,16 @@ import {
     PageBox,
     backButtonCss,
 } from './IndexPageStyle';
+import chapterList from '../../../db/chapter.json';
 import CircleButton from '../../../components/CircleButton/CircleButton';
 
 export default function IndexPage() {
     const { state } = useLocation();
+    const { bookname } = useParams();
+    const realBookname = bookname.replaceAll('-', ' ').replaceAll(',', '/');
+    const { id, title, indexData, color } = chapterList.contentList.find(
+        item => item.title === realBookname,
+    );
     const [isButtonShow, setIsButtonShow] = useState(false);
     const [isMovetoChapter, setIsMovetoChapter] = useState(false);
     const [isBeforeChapter] = useState(state);
@@ -35,13 +41,7 @@ export default function IndexPage() {
         setIsMovetoChapter(true);
         const timer = () =>
             setTimeout(() => {
-                navigate(
-                    `/${pathname.split('/')[1]}/${chapter
-                        .replaceAll(', ', ',')
-                        .replaceAll(' ', '-')
-                        .replaceAll('/', '-')}`,
-                    { state: chapter },
-                );
+                navigate(`/${bookname}/${chapter.replaceAll(' ', '-')}#1`);
             }, 500);
         timer();
         return clearTimeout(timer);
