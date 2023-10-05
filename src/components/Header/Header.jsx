@@ -7,15 +7,25 @@ import styled from '@emotion/styled';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 const Wrapper = styled.nav`
+    width: clamp(calc(100% - 240px), calc(100% - 240px), 1200px);
+    margin: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 58px 120px 0 120px;
+    padding-top: 58px;
+
+    @media screen and (max-width: 1024px) {
+        min-width: calc(100% - 40px);
+    }
 `;
 
 const Logo = styled.img`
     width: 90px;
     cursor: pointer;
+
+    @media screen and (max-width: 480px) {
+        width: 56px;
+    }
 `;
 
 const TextBtn = styled.button`
@@ -23,10 +33,23 @@ const TextBtn = styled.button`
     font-size: ${({ theme }) => theme.fontSize.base};
     font-weight: 600;
     margin-right: 56px;
+
+    @media screen and (max-width: 1024px) {
+        margin-right: 40px;
+    }
+
+    @media screen and (max-width: 480px) {
+        font-size: ${({ theme }) => theme.fontSize.xs};
+        margin-right: 18px;
+    }
 `;
 
 const ImgBtn = styled.button`
     width: 46px;
+
+    @media screen and (max-width: 480px) {
+        width: 30px;
+    }
 `;
 
 export default function Header() {
@@ -48,12 +71,13 @@ export default function Header() {
     function goGithub() {
         const githubURL = 'https://github.com/Jobs-Js/JavaScript-Study';
         window.open(githubURL, '_blank');
-        console.log('깃허브 이동?');
     }
 
     return (
         <Wrapper>
-            <Logo src={logo} alt="Logo" onClick={goHome} />
+            <h1>
+                <Logo src={logo} alt="JJA Logo" onClick={goHome} />
+            </h1>
             <div>
                 <TextBtn onClick={goInfo}>
                     {location.pathname === '/info' ? 'CLOSE' : 'INFO'}
