@@ -9,7 +9,7 @@ import {
     PageBox,
     backButtonCss,
 } from './IndexPageStyle';
-import ArrowButton from '../../../components/ArrowButton/ArrowButton';
+import CircleButton from '../../../components/CircleButton/CircleButton';
 
 export default function IndexPage() {
     const { pathname, state } = useLocation();
@@ -75,7 +75,7 @@ export default function IndexPage() {
                                     >{`${indx + 1}. ${item}`}</li>
                                 ))}
                             </ul>
-                            <ArrowButton
+                            <CircleButton
                                 color={color}
                                 ariaLabel="콘텐츠 보기 버튼"
                                 onClick={e => {
@@ -89,11 +89,11 @@ export default function IndexPage() {
                     <div></div>
                 </BookCoverBack>
                 {isButtonShow && (
-                    <ArrowButton
+                    <CircleButton
                         color={color}
-                        ariaLabel="뒤로가기 버튼"
+                        ariaLabel="홈으로 돌아가기 버튼"
                         onClick={() => {
-                            navigate(-1);
+                            navigate('/');
                         }}
                         css={backButtonCss}
                     />
