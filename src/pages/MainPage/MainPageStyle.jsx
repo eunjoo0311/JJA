@@ -23,6 +23,13 @@ export const MainWrapper = styled.div`
     @media screen and (min-height: 925px) {
         height: calc(100vh - 104px);
     }
+    @media (max-width: 1024px) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: calc(100vh - 104px);
+        background: none;
+    }
 `;
 
 export const BookList = styled.ul`
@@ -39,6 +46,18 @@ export const BookList = styled.ul`
         align-content: end;
         flex-wrap: wrap;
         height: calc(100vh - 104px);
+    }
+
+    @media (max-width: 1024px) {
+        flex-direction: row-reverse;
+        transform-origin: center;
+        transform: rotate(-90deg);
+
+        background: none;
+
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
     }
 `;
 
@@ -86,6 +105,12 @@ export const BookItem = styled.li`
     background: url(${({ bgUrl }) => bgUrl}) no-repeat top / contain;
     transition: all 0.5s;
 
+    @media (max-width: 1024px) {
+        width: 51.408px;
+        height: 349.578px;
+        margin: 0 20px 0 0;
+    }
+
     &:nth-of-type(3) {
         transform: rotate(16deg);
         margin: 0 90px 0 88px;
@@ -96,10 +121,30 @@ export const BookItem = styled.li`
                 transform: scale(1.1) translate(16px, 50px);
             }
         }
+
+        @media (max-width: 1024px) {
+            transform: rotate(8deg);
+            margin: 0 30px 0 16px;
+            &:hover {
+                transform: scale(1.1) translate(0px, 0px);
+            }
+        }
+    }
+
+    &:nth-of-type(7) {
+        @media (max-width: 1024px) {
+            transform: rotate(-8deg);
+            margin: 0 30px 0 16px;
+        }
     }
     &:nth-of-type(9) {
         transform: rotate(-11deg);
         margin-left: 63px;
+
+        @media (max-width: 1024px) {
+            transform: rotate(0deg);
+            margin: 0 16px;
+        }
     }
 
     &:nth-of-type(${({ selectedBook }) => selectedBook}) {
@@ -137,16 +182,28 @@ export const BookItem = styled.li`
         display: flex;
         align-items: center;
         gap: 52px;
+        @media (max-width: 1024px) {
+            height: 51.408px;
+            width: 349.578px;
+            padding: 0 60px;
+        }
     }
 
     span {
         font-weight: 600;
         font-size: ${({ theme }) => theme.fontSize.xl};
         transform: rotate(-90deg);
+        @media (max-width: 1024px) {
+            font-size: ${({ theme }) => theme.fontSize.medium};
+        }
     }
     h2 {
         font-size: ${({ theme }) => theme.fontSize.large};
         line-height: 160%;
         font-weight: 600;
+        @media (max-width: 1024px) {
+            font-size: ${({ theme }) => theme.fontSize.base};
+            white-space: nowrap;
+        }
     }
 `;
