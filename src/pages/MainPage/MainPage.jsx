@@ -17,8 +17,7 @@ export default function MainPage() {
                 navigate(
                     `/${content.title
                         .replaceAll(' ', '-')
-                        .replaceAll('/', '-')}/index`,
-                    { state: content },
+                        .replaceAll('/', ',')}/index`,
                 );
             }, 500);
         timer();

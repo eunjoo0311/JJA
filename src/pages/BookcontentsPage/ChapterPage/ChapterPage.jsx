@@ -57,6 +57,7 @@ export default function ChapterPage() {
         const timer = () =>
             setTimeout(() => {
                 navigate(`/${bookname}/index`, {
+                    state: true,
                 });
             }, 400);
         timer();
