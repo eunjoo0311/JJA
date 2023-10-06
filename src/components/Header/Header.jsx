@@ -10,7 +10,7 @@ const Wrapper = styled.nav`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 58px 120px 0 120px;
+    padding: 58px 10% 0 10%;
 `;
 
 const Logo = styled.img`
