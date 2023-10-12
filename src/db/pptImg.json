@@ -148,7 +148,7 @@
         "https://i.ibb.co/r5y8prC/JSON-21.png",
         "https://i.ibb.co/tL1ZZVn/JSON-22.png"
     ],
-    "new Function": [
+    "new Function 문법": [
         "https://i.ibb.co/bvNnSkD/new-Function-02.png",
         "https://i.ibb.co/mSrYQ7b/new-Function-03.png",
         "https://i.ibb.co/S7hmTh2/new-Function-04.png",
@@ -163,6 +163,7 @@
         "https://i.ibb.co/xhjLjp5/this-02.png",
         "https://i.ibb.co/1mMGj7z/this-03.png",
         "https://i.ibb.co/m8jCRtX/this-04.png",
+        "https://i.ibb.co/p0mWG78/this-05.png",
         "https://i.ibb.co/p0mWG78/this-05.png",
         "https://i.ibb.co/rd5jVjp/this-06.png",
         "https://i.ibb.co/ftQKM72/this-07.png",
@@ -232,7 +233,7 @@
         "https://i.ibb.co/KbMsrQq/new-05.png",
         "https://i.ibb.co/VL4M8hr/new-06.png"
     ],
-    "심볼": [
+    "Symbol": [
         "https://i.ibb.co/gjbcKXm/symbol-01.png",
         "https://i.ibb.co/DbynP2n/symbol-02.png",
         "https://i.ibb.co/tZL9pbv/symbol-03.png",
@@ -259,7 +260,7 @@
         "https://i.ibb.co/mFX5z9y/stack-04.png",
         "https://i.ibb.co/PTSRtqL/stack-05.png"
     ],
-    "getter setter": [
+    "getter와 setter": [
         "https://i.ibb.co/ncSZ6rb/getter-01.png",
         "https://i.ibb.co/3h1tBGN/getter-02.png",
         "https://i.ibb.co/yY8dnrv/getter-03.png"
@@ -303,7 +304,7 @@
         "https://i.ibb.co/r5D9gVD/objectf-08.png",
         "https://i.ibb.co/qysb7xz/objectf-09.png"
     ],
-    "배열과 메서드1": [
+    "배열과 메서드 1": [
         "https://i.ibb.co/sJBbx90/method-01.png",
         "https://i.ibb.co/fGQrMXt/method-02.png",
         "https://i.ibb.co/wCkCKqB/method-03.png",
@@ -342,7 +343,7 @@
         "https://i.ibb.co/JQ1pczv/call-07.png",
         "https://i.ibb.co/swwr0nx/call-08.png"
     ],
-    "프로토타입-상속": [
+    "프로토타입: 상속": [
         "https://i.ibb.co/8PHWbWv/prototype-01.png",
         "https://i.ibb.co/7G4Q2ZR/prototype-02.png",
         "https://i.ibb.co/mvcz3Zv/prototype-03.png",

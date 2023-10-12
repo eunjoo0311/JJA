@@ -55,6 +55,14 @@ const bookSlideAnimate = p => css`
     `};
 `;
 
+const nonAnimateBox = p => css`
+    animation: ${p.isBeforeChapter &&
+    css`
+        ${bookRotate} 0s forwards,
+        ${bookOpen} 0s forwards;
+    `};
+`;
+
 export const BookBox = styled.div`
     position: relative;
     margin: 60px auto;
@@ -65,6 +73,7 @@ export const BookBox = styled.div`
     animation:
         ${bookRotate} 1.2s ease-in-out forwards,
         ${bookOpen} 1.5s 1.2s forwards;
+    ${nonAnimateBox}
     ${bookSlideAnimate}
 `;
 
@@ -97,6 +106,13 @@ const coverFrontOpen = keyframes`
     }
 `;
 
+const nonAnimateCover = p => css`
+    animation: ${p.isBeforeChapter &&
+    css`
+        ${coverFrontOpen} 0s forwards
+    `};
+`;
+
 export const BookCoverFront = styled.ul`
     width: 100%;
     height: 100%;
@@ -110,6 +126,7 @@ export const BookCoverFront = styled.ul`
     transform: translate3d(0, 0, 50px);
     transform-origin: left top;
     animation: ${coverFrontOpen} 2s 1.2s forwards;
+    ${nonAnimateCover}
 
     /* 앞면 */
     & > li:first-of-type {
