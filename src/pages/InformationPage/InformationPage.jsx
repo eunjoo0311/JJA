@@ -27,7 +27,7 @@ const Info = styled.p`
     }
 
     @media screen and (max-width: 1024px) {
-        min-width: calc(100% - 40px);
+        min-width: calc(100vw - 40px);
         font-size: ${({ theme }) => theme.fontSize.medium};
     }
     @media screen and (max-width: 480px) {
