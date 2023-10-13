@@ -145,3 +145,8 @@ export const PageNum = styled.p`
 export const prevButtonCss = css`
     transform: rotate(180deg);
 `;
+
+export const PptImgBox = styled.article`
+    box-shadow: 0px 0px 14px rgba(50, 50, 50, 0.2);
+    aspect-ratio: 16 / 9;
+`;
