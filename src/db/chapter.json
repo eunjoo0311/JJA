@@ -3,7 +3,7 @@
         {
             "id": 2,
             "title": "자바스크립트 기본",
-            "indexData": ["함수", "반복문", "연산자"],
+            "indexData": ["연산자", "반복문과 switch문", "함수"],
             "color": "red"
         },
         {
@@ -20,8 +20,8 @@
                 "배열과 메서드 2",
                 "Symbol",
                 "map과 set",
-                "JSON과 메서드",
-                "Object keys, values, entries"
+                "Object keys, values, entries",
+                "JSON과 메서드"
             ],
             "color": "yellow"
         },
@@ -29,18 +29,18 @@
             "id": 6,
             "title": "함수 심화학습",
             "indexData": [
+                "재귀와 스택",
                 "나머지 매개변수와 스프레드 문법",
                 "변수의 유효범위와 클로저",
-                "재귀와 스택",
-                "호출 스케줄링",
-                "new Function 문법"
+                "new Function 문법",
+                "호출 스케줄링"
             ],
             "color": "lightGreen"
         },
         {
             "id": 7,
-            "title": "객체 프로퍼티 설정",
-            "indexData": ["프로토타입: 상속", "getter와 setter"],
+            "title": "객체 프로퍼티와 프로토타입",
+            "indexData": ["getter와 setter", "프로토타입: 상속"],
             "color": "skyBlue"
         },
         {

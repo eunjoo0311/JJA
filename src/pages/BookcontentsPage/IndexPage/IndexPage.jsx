@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import {
     BookSpine,
     BookBox,
@@ -9,35 +9,39 @@ import {
     PageBox,
     backButtonCss,
 } from './IndexPageStyle';
-import ArrowButton from '../../../components/ArrowButton/ArrowButton';
+import chapterList from '../../../db/chapter.json';
+import CircleButton from '../../../components/CircleButton/CircleButton';
 
 export default function IndexPage() {
-    const { pathname, state } = useLocation();
-    const { id, title, indexData, color } = state;
+    const { state } = useLocation();
+    const { bookname } = useParams();
+    const realBookname = bookname.replaceAll('-', ' ').replaceAll(',', '/');
+    const { id, title, indexData, color } = chapterList.contentList.find(
+        item => item.title === realBookname,
+    );
     const [isButtonShow, setIsButtonShow] = useState(false);
     const [isMovetoChapter, setIsMovetoChapter] = useState(false);
+    const [isBeforeChapter] = useState(state);
     const navigate = useNavigate();
 
     useEffect(() => {
-        const timer = () =>
-            setTimeout(() => {
-                setIsButtonShow(true);
-            }, 2600);
-        timer();
-        return clearTimeout(timer);
-    }, [isButtonShow]);
+        if (!isBeforeChapter) {
+            const timer = () =>
+                setTimeout(() => {
+                    setIsButtonShow(true);
+                }, 2600);
+            timer();
+            return clearTimeout(timer);
+        } else {
+            setIsButtonShow(true);
+        }
+    }, [isBeforeChapter]);
 
     const handleClickChapterButton = chapter => {
         setIsMovetoChapter(true);
         const timer = () =>
             setTimeout(() => {
-                navigate(
-                    `/${pathname.split('/')[1]}/${chapter
-                        .replaceAll(', ', ',')
-                        .replaceAll(' ', '-')
-                        .replaceAll('/', '-')}`,
-                    { state: chapter },
-                );
+                navigate(`/${bookname}/${chapter.replaceAll(' ', '-')}#1`);
             }, 500);
         timer();
         return clearTimeout(timer);
@@ -45,7 +49,10 @@ export default function IndexPage() {
 
     return (
         <IndexPageWrapper>
-            <BookBox isMovetoChapter={isMovetoChapter}>
+            <BookBox
+                isMovetoChapter={isMovetoChapter}
+                isBeforeChapter={isBeforeChapter}
+            >
                 <BookSpine bgUrl={`../img/spine/spine${id}.png`}>
                     <button>
                         <span>{String(id).padStart(2, '0')}</span>
@@ -55,6 +62,7 @@ export default function IndexPage() {
                 <BookCoverFront
                     bgUrl={`../img/cover/cover${id}.png`}
                     color={color}
+                    isBeforeChapter={isBeforeChapter}
                 >
                     <li>
                         <h2> {title}</h2>
@@ -75,7 +83,7 @@ export default function IndexPage() {
                                     >{`${indx + 1}. ${item}`}</li>
                                 ))}
                             </ul>
-                            <ArrowButton
+                            <CircleButton
                                 color={color}
                                 ariaLabel="콘텐츠 보기 버튼"
                                 onClick={e => {
@@ -89,11 +97,11 @@ export default function IndexPage() {
                     <div></div>
                 </BookCoverBack>
                 {isButtonShow && (
-                    <ArrowButton
+                    <CircleButton
                         color={color}
-                        ariaLabel="뒤로가기 버튼"
+                        ariaLabel="홈으로 돌아가기 버튼"
                         onClick={() => {
-                            navigate(-1);
+                            navigate('/');
                         }}
                         css={backButtonCss}
                     />
