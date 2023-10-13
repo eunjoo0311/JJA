@@ -11,11 +11,13 @@ import {
     RightPage,
     prevButtonCss,
     BookBox,
+    PptImgBox,
 } from './ChapterPageStyle';
 import pptImg from '../../../db/pptImg.json';
 import content from '../../../db/content.json';
 import chapterList from '../../../db/chapter.json';
 import CircleButton from '../../../components/CircleButton/CircleButton';
+import Spinner from '../../../components/Spinner/Spinner';
 
 export default function ChapterPage() {
     const navigate = useNavigate();
@@ -124,19 +126,17 @@ export default function ChapterPage() {
                     maxHeight={480}
                     bounds="window"
                 >
-                    <article>
-                        {firstImageLoaded && (
+                    <PptImgBox>
+                        {firstImageLoaded ? (
                             <img
                                 src={pptImgData[pageNumber - 1].src}
                                 draggable="false"
                                 alt="ppt 장표"
-                                style={{
-                                    boxShadow:
-                                        ' 0px 0px 14px rgba(50, 50, 50, 0.2)',
-                                }}
                             />
+                        ) : (
+                            <Spinner />
                         )}
-                    </article>
+                    </PptImgBox>
                 </Rnd>
             </BookBox>
         </ChapterPageWrapper>
