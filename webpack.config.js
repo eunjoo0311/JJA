@@ -33,10 +33,6 @@ module.exports = {
                 options: {
                     name: '[path][name].[ext]',
                 },
-            },
-            {
-                test: /\.(png|jpg|jpeg|gif|webp)$/i,
-                type: 'asset',
                 parser: {
                     dataUrlCondition: {
                         maxSize: 8 * 1024,
@@ -45,13 +41,7 @@ module.exports = {
             },
             {
                 test: /\.svg$/i,
-                type: 'asset',
-                resourceQuery: /url/,
-            },
-            {
-                test: /\.svg$/i,
                 issuer: /\.[jt]sx?$/,
-                resourceQuery: { not: [/url/] },
                 use: ['@svgr/webpack', 'file-loader'],
             },
         ],
