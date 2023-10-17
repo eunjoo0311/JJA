@@ -9,9 +9,14 @@ export default function CircleButton({
     onClick,
     color,
     css,
+    diameter = 64,
 }) {
     const theme = useTheme();
     const selectedColor = theme.colors[color];
+
+    if (window.innerWidth < 1024) {
+        diameter = 44;
+    }
 
     return (
         <button
@@ -21,7 +26,11 @@ export default function CircleButton({
             css={css}
         >
             {type === 'arrow' ? (
-                <ArrowIcon color={selectedColor} />
+                <ArrowIcon
+                    color={selectedColor}
+                    width={diameter}
+                    height={diameter}
+                />
             ) : (
                 <MenuIcon color={selectedColor} />
             )}
