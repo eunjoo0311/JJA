@@ -16,6 +16,15 @@ const fadeOutBgAnimate = p => css`
     `};
 `;
 
+const rotateBook = keyframes`
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(90deg);
+    }
+`;
+
 export const MainWrapper = styled.div`
     background: url(${({ bookShelfImg }) => bookShelfImg}) no-repeat bottom /
         100% 85px;
@@ -23,11 +32,11 @@ export const MainWrapper = styled.div`
     @media screen and (min-height: 925px) {
         height: calc(100vh - 104px);
     }
+
     @media (max-width: 1024px) {
         display: flex;
         justify-content: center;
-        align-items: center;
-        height: calc(100vh - 104px);
+        align-items: flex-start;
         background: none;
     }
 `;
@@ -52,12 +61,17 @@ export const BookList = styled.ul`
         flex-direction: row-reverse;
         transform-origin: center;
         transform: rotate(-90deg);
-
         background: none;
-
         display: flex;
         align-items: center;
         flex-wrap: nowrap;
+        margin-top: 50px;
+    }
+    @media (max-width: 480px) {
+        margin-top: 0px;
+    }
+    @media screen and (max-height: 925px) {
+        margin-top: 240px;
     }
 `;
 
@@ -106,9 +120,14 @@ export const BookItem = styled.li`
     transition: all 0.5s;
 
     @media (max-width: 1024px) {
-        width: 51.408px;
-        height: 349.578px;
+        width: unset;
+        height: 510px;
         margin: 0 20px 0 0;
+        aspect-ratio: 10 / 68;
+    }
+
+    @media (max-width: 480px) {
+        height: calc(100vw - 40px);
     }
 
     &:nth-of-type(3) {
@@ -124,7 +143,7 @@ export const BookItem = styled.li`
 
         @media (max-width: 1024px) {
             transform: rotate(8deg);
-            margin: 0 30px 0 16px;
+            margin: 0 50px 0 30px;
             &:hover {
                 transform: scale(1.1) translate(0px, 0px);
             }
@@ -134,7 +153,7 @@ export const BookItem = styled.li`
     &:nth-of-type(7) {
         @media (max-width: 1024px) {
             transform: rotate(-8deg);
-            margin: 0 30px 0 16px;
+            margin: 0 50px 0 30px;
         }
     }
     &:nth-of-type(9) {
@@ -158,6 +177,11 @@ export const BookItem = styled.li`
                     animation: ${fadeInBookForLongHeight} 0.5s forwards;
                 }
             `};
+
+        @media (max-width: 1024px) {
+            transform: center;
+            animation: ${rotateBook} 0.5s ease-in-out forwards;
+        }
     }
 
     &:hover {
@@ -182,10 +206,21 @@ export const BookItem = styled.li`
         display: flex;
         align-items: center;
         gap: 52px;
+
         @media (max-width: 1024px) {
-            height: 51.408px;
-            width: 349.578px;
-            padding: 0 60px;
+            aspect-ratio: 68 / 10;
+            height: unset;
+            width: 510px;
+            padding: 0 50px;
+
+            gap: 30px;
+        }
+
+        @media (max-width: 480px) {
+            width: calc(100vw - 40px);
+            height: unset;
+            padding: 0px 15vw;
+            gap: 6vw;
         }
     }
 
@@ -193,17 +228,26 @@ export const BookItem = styled.li`
         font-weight: 600;
         font-size: ${({ theme }) => theme.fontSize.xl};
         transform: rotate(-90deg);
+
         @media (max-width: 1024px) {
+            font-size: ${({ theme }) => theme.fontSize.large};
+        }
+
+        @media (max-width: 480px) {
             font-size: ${({ theme }) => theme.fontSize.medium};
         }
     }
+
     h2 {
         font-size: ${({ theme }) => theme.fontSize.large};
         line-height: 160%;
         font-weight: 600;
         @media (max-width: 1024px) {
-            font-size: ${({ theme }) => theme.fontSize.base};
+            font-size: ${({ theme }) => theme.fontSize.medium};
             white-space: nowrap;
+        }
+        @media (max-width: 480px) {
+            font-size: ${({ theme }) => theme.fontSize.base};
         }
     }
 `;
