@@ -317,6 +317,7 @@ export const PageBox = styled.div`
 `;
 
 export const menuButtonCss = css`
+    width: 64px;
     position: absolute;
     top: 74px;
     right: 34px;
