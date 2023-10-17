@@ -39,6 +39,13 @@ const bookOpen = keyframes`
     }
 `;
 
+const mobileBookOpen = keyframes`
+    0%{
+    }
+    100%{
+        transform: translateX(100%);
+    }
+`;
 const bookSlide = keyframes`
     0%{
         transform: translateX(1098px);
@@ -48,10 +55,25 @@ const bookSlide = keyframes`
     }
 `;
 
+const mobileBookSlide = keyframes`
+    0%{
+        transform: translateX(100%);
+    }
+    100%{
+        transform: translateX(0px);
+    }
+`;
+
 const bookSlideAnimate = p => css`
     animation: ${p.isMovetoChapter &&
     css`
         ${bookSlide} 0.5s forwards;
+    `};
+`;
+const mobileBookSlideAnimate = p => css`
+    animation: ${p.isMovetoChapter &&
+    css`
+        ${mobileBookSlide} 0.5s forwards;
     `};
 `;
 
@@ -66,7 +88,6 @@ const nonAnimateBox = p => css`
 export const BookBox = styled.div`
     position: relative;
     margin: 60px auto;
-
     width: 1098px;
     height: 680px;
     transform-style: preserve-3d;
@@ -75,6 +96,23 @@ export const BookBox = styled.div`
         ${bookOpen} 1.5s 1.2s forwards;
     ${nonAnimateBox}
     ${bookSlideAnimate}
+
+    @media (max-width: 1024px) {
+        width: 480px;
+        height: 700px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation:
+            ${bookRotate} 1.2s ease-in-out forwards,
+            ${mobileBookOpen} 1.5s 1.2s forwards;
+        ${mobileBookSlideAnimate}
+    }
+
+    @media (max-width: 480px) {
+        width: calc(100vw - 15%);
+        height: 70vh;
+    }
 `;
 
 const perspectiveSetting = css`
@@ -84,6 +122,7 @@ const perspectiveSetting = css`
     transform-style: preserve-3d;
 `;
 
+/* 옆면 */
 export const BookSpine = styled(BookItem.withComponent('div'))`
     ${perspectiveSetting}
     display: block;
@@ -95,6 +134,18 @@ export const BookSpine = styled(BookItem.withComponent('div'))`
         cursor: default;
     }
     transform: rotateY(-90deg) translateZ(50px);
+
+    @media (max-width: 1024px) {
+        button {
+            display: none;
+        }
+        height: 100%;
+        transform: rotateY(-90deg) translateZ(52px);
+    }
+
+    @media (max-width: 480px) {
+        transform: rotateY(-90deg) translateZ(55px);
+    }
 `;
 
 const coverFrontOpen = keyframes`
@@ -135,10 +186,21 @@ export const BookCoverFront = styled.ul`
         font-weight: 600;
         backface-visibility: hidden;
 
+        @media (max-width: 1024px) {
+            background: url(${({ bgUrl }) => bgUrl}) no-repeat top left / cover;
+            border-radius: 12px;
+        }
+
         h2 {
             position: relative;
             padding: 126px 0 30px;
             font-size: ${({ theme }) => theme.fontSize.xxl};
+            @media (max-width: 1024px) {
+                font-size: ${({ theme }) => theme.fontSize.xl};
+            }
+            @media (max-width: 480px) {
+                font-size: ${({ theme }) => theme.fontSize.medium};
+            }
         }
 
         h2::after {
@@ -150,10 +212,22 @@ export const BookCoverFront = styled.ul`
             bottom: 10px;
             left: 50%;
             transform: translate(-50%, -50%);
+            @media (max-width: 1024px) {
+                width: 30px;
+            }
+            @media (max-width: 480px) {
+                width: 20px;
+            }
         }
 
         span {
             font-size: ${({ theme }) => theme.fontSize.medium};
+            @media (max-width: 1024px) {
+                font-size: ${({ theme }) => theme.fontSize.base};
+            }
+            @media (max-width: 480px) {
+                font-size: ${({ theme }) => theme.fontSize.small};
+            }
         }
     }
 
@@ -163,6 +237,10 @@ export const BookCoverFront = styled.ul`
         ${selectedColor}
         border-radius: 12px 0 0 12px;
         padding: 20px 0 20px 26px;
+        @media (max-width: 1024px) {
+            border-radius: 6px 0 0 6px;
+            padding: 10px 0 10px 10px;
+        }
     }
 `;
 
@@ -178,6 +256,10 @@ export const PageBox = styled.div`
     padding: 74px 90px;
     font-weight: 600;
 
+    @media (max-width: 1024px) {
+        border-radius: 6px 0 0 6px;
+        padding: 10px 0 10px 10px;
+    }
     &::after {
         position: absolute;
         content: '';
@@ -195,11 +277,34 @@ export const PageBox = styled.div`
     h2 {
         font-size: ${({ theme }) => theme.fontSize.xl};
         margin-bottom: 42px;
+
+        @media (max-width: 1024px) {
+            font-size: ${({ theme }) => theme.fontSize.large};
+            padding: 25px;
+            margin-bottom: 0;
+        }
+        @media (max-width: 480px) {
+            font-size: ${({ theme }) => theme.fontSize.medium};
+            padding: 25px;
+            margin-bottom: 0;
+        }
     }
 
     ul {
         font-size: ${({ theme }) => theme.fontSize.large};
         line-height: 1.8;
+
+        @media (max-width: 1024px) {
+            font-size: ${({ theme }) => theme.fontSize.medium};
+            padding: 0px 25px 25px 25px;
+            line-height: 2;
+        }
+
+        @media (max-width: 480px) {
+            font-size: ${({ theme }) => theme.fontSize.base};
+            padding: 0px 25px 25px 25px;
+            line-height: 2;
+        }
 
         li {
             cursor: pointer;
@@ -209,12 +314,24 @@ export const PageBox = styled.div`
             text-decoration: underline;
         }
     }
+`;
 
-    button {
-        position: absolute;
-        top: 74px;
+export const menuButtonCss = css`
+    position: absolute;
+    top: 74px;
+    right: 34px;
+    transform: translateZ(2px);
+
+    @media (max-width: 1024px) {
+        top: auto;
+        bottom: 20px;
         right: 34px;
-        transform: translateZ(2px);
+    }
+
+    @media (max-width: 1024px) {
+        top: auto;
+        bottom: 20px;
+        right: 34px;
     }
 `;
 
@@ -226,6 +343,11 @@ export const BookCoverBack = styled.div`
     ${selectedColor}
     border-radius: 0 12px 12px 0;
     padding: 20px 26px 20px 0;
+
+    @media (max-width: 1024px) {
+        border-radius: 0 6px 6px 0;
+        padding: 10px 13px 10px 0;
+    }
 
     div {
         position: relative;
