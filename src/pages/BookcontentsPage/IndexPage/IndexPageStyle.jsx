@@ -81,7 +81,7 @@ const nonAnimateBox = p => css`
     animation: ${p.isBeforeChapter &&
     css`
         ${bookRotate} 0s forwards,
-        ${bookOpen} 0s forwards;
+        ${mobileBookOpen} 0s forwards;
     `};
 `;
 
@@ -106,6 +106,7 @@ export const BookBox = styled.div`
         animation:
             ${bookRotate} 1.2s ease-in-out forwards,
             ${mobileBookOpen} 1.5s 1.2s forwards;
+        ${nonAnimateBox}
         ${mobileBookSlideAnimate}
     }
 
@@ -141,10 +142,6 @@ export const BookSpine = styled(BookItem.withComponent('div'))`
         }
         height: 100%;
         transform: rotateY(-90deg) translateZ(52px);
-    }
-
-    @media (max-width: 480px) {
-        transform: rotateY(-90deg) translateZ(55px);
     }
 `;
 
@@ -213,10 +210,10 @@ export const BookCoverFront = styled.ul`
             left: 50%;
             transform: translate(-50%, -50%);
             @media (max-width: 1024px) {
-                width: 30px;
+                width: 55px;
             }
             @media (max-width: 480px) {
-                width: 20px;
+                width: 50px;
             }
         }
 
