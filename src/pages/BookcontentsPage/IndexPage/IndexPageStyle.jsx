@@ -143,6 +143,10 @@ export const BookSpine = styled(BookItem.withComponent('div'))`
         height: 100%;
         transform: rotateY(-90deg) translateZ(52px);
     }
+
+    @media (max-width: 480px) {
+        transform: rotateY(-90deg) translateZ(42px);
+    }
 `;
 
 const coverFrontOpen = keyframes`
