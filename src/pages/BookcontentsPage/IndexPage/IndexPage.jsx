@@ -8,6 +8,7 @@ import {
     BookCoverBack,
     PageBox,
     backButtonCss,
+    menuButtonCss,
 } from './IndexPageStyle';
 import chapterList from '../../../db/chapter.json';
 import CircleButton from '../../../components/CircleButton/CircleButton';
@@ -89,6 +90,7 @@ export default function IndexPage() {
                                 onClick={e => {
                                     handleClickChapterButton(indexData[0]);
                                 }}
+                                css={menuButtonCss}
                             />
                         </PageBox>
                     </li>
