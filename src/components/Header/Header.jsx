@@ -15,6 +15,9 @@ const Wrapper = styled.nav`
     padding-top: 58px;
 
     @media screen and (max-width: 1024px) {
+        min-width: calc(100vw - 120px);
+    }
+    @media screen and (max-width: 480px) {
         min-width: calc(100vw - 40px);
     }
 `;
