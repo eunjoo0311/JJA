@@ -1,6 +1,3 @@
-/** @jsx jsx */
-import { jsx, css } from '@emotion/react';
-import React from 'react';
 import github from '../../assets/images/github.svg';
 import logo from '../../assets/images/JJA.svg';
 import styled from '@emotion/styled';

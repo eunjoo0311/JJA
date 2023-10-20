@@ -2,7 +2,7 @@ import React from 'react';
 import { appRouter } from './pages/Router';
 import { RouterProvider } from 'react-router-dom';
 import { Global, ThemeProvider } from '@emotion/react';
-import GlobalStyle from './style/GlobalStyle';
+import GlobalStyle from './style/globalStyle';
 import theme from './style/theme';
 
 export default function App() {
