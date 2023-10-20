@@ -1,5 +1,4 @@
-/** @jsx jsx */
-import { jsx, useTheme } from '@emotion/react';
+import { useTheme } from '@emotion/react';
 import { ReactComponent as ArrowIcon } from '../../assets/images/arrow-circle.svg';
 import { ReactComponent as MenuIcon } from '../../assets/images/menu-circle.svg';
 import debounce from '../../utils/debounce';
