@@ -112,7 +112,7 @@ export const BookBox = styled.div`
 
     @media (max-width: 480px) {
         width: calc(100vw - 15%);
-        height: 70vh;
+        height: 76vh;
     }
 `;
 
@@ -318,7 +318,6 @@ export const PageBox = styled.div`
 `;
 
 export const menuButtonCss = css`
-    width: 64px;
     position: absolute;
     top: 74px;
     right: 34px;
