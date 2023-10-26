@@ -33,6 +33,7 @@ const bookRotate = keyframes`
 
 const bookOpen = keyframes`
     0%{
+        transform: translateX(0);
     }
     100%{
         transform: translateX(1098px);
@@ -41,11 +42,27 @@ const bookOpen = keyframes`
 
 const mobileBookOpen = keyframes`
     0%{
+        transform: translateX(0);
     }
     100%{
         transform: translateX(100%);
     }
 `;
+const bookRotateOpenAnimation = p => css`
+    animation: ${p.isImageLoaded &&
+    css`
+        ${bookRotate} 1.2s ease-in-out forwards,
+        ${bookOpen} 1.5s 1.2s forwards;
+    `};
+`;
+const mobileBookRotateOpenAnimation = p => css`
+    animation: ${p.isImageLoaded &&
+    css`
+        ${bookRotate} 1.2s ease-in-out forwards,
+        ${mobileBookOpen} 1.5s 1.2s forwards;
+    `};
+`;
+
 const bookSlide = keyframes`
     0%{
         transform: translateX(1098px);
@@ -91,9 +108,8 @@ export const BookBox = styled.div`
     width: 1098px;
     height: 680px;
     transform-style: preserve-3d;
-    animation:
-        ${bookRotate} 1.2s ease-in-out forwards,
-        ${bookOpen} 1.5s 1.2s forwards;
+
+    ${bookRotateOpenAnimation}
     ${nonAnimateBox}
     ${bookSlideAnimate}
 
@@ -103,9 +119,8 @@ export const BookBox = styled.div`
         display: flex;
         justify-content: center;
         align-items: center;
-        animation:
-            ${bookRotate} 1.2s ease-in-out forwards,
-            ${mobileBookOpen} 1.5s 1.2s forwards;
+
+        ${mobileBookRotateOpenAnimation}
         ${nonAnimateBox}
         ${mobileBookSlideAnimate}
     }
@@ -158,6 +173,13 @@ const coverFrontOpen = keyframes`
     }
 `;
 
+const coverFrontOpenAnimation = p => css`
+    animation: ${p.isImageLoaded &&
+    css`
+        ${coverFrontOpen} 2s 1.2s forwards;
+    `};
+`;
+
 const nonAnimateCover = p => css`
     animation: ${p.isBeforeChapter &&
     css`
@@ -177,7 +199,8 @@ export const BookCoverFront = styled.ul`
     }
     transform: translate3d(0, 0, 50px);
     transform-origin: left top;
-    animation: ${coverFrontOpen} 2s 1.2s forwards;
+
+    ${coverFrontOpenAnimation}
     ${nonAnimateCover}
 
     /* 앞면 */
