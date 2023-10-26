@@ -7,8 +7,6 @@ import {
     BookCoverFront,
     BookCoverBack,
     PageBox,
-    backButtonCss,
-    menuButtonCss,
 } from './IndexPageStyle';
 import chapterList from '../../../db/chapter.json';
 import CircleButton from '../../../components/CircleButton/CircleButton';

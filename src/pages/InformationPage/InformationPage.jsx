@@ -1,4 +1,3 @@
-import { jsx } from '@emotion/react';
 import styled from '@emotion/styled';
 
 const InfoWrapper = styled.div`
