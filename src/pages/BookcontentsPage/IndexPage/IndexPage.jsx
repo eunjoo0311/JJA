@@ -23,6 +23,7 @@ export default function IndexPage() {
     const [isButtonShow, setIsButtonShow] = useState(false);
     const [isMovetoChapter, setIsMovetoChapter] = useState(false);
     const [isBeforeChapter] = useState(state);
+    const [isImageLoaded, setIsImageLoaded] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -53,6 +54,7 @@ export default function IndexPage() {
             <BookBox
                 isMovetoChapter={isMovetoChapter}
                 isBeforeChapter={isBeforeChapter}
+                isImageLoaded={isImageLoaded}
             >
                 <BookSpine bgUrl={`../img/spine/spine${id}.png`}>
                     <button>
@@ -64,6 +66,7 @@ export default function IndexPage() {
                     bgUrl={`../img/cover/cover${id}.png`}
                     color={color}
                     isBeforeChapter={isBeforeChapter}
+                    isImageLoaded={isImageLoaded}
                 >
                     <li>
                         <h2> {title}</h2>
@@ -109,6 +112,15 @@ export default function IndexPage() {
                     />
                 )}
             </BookBox>
+            <img
+                src={`../img/cover/cover${id}.png`}
+                alt="커버 이미지 로드 확인용"
+                style={{ display: 'none' }}
+                onLoad={() => {
+                    setIsImageLoaded(true);
+                    console.log('이미지로드');
+                }}
+            />
         </IndexPageWrapper>
     );
 }
