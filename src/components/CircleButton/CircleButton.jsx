@@ -9,7 +9,7 @@ export default function CircleButton({
     ariaLabel,
     onClick,
     color,
-    css,
+    styledCss,
 }) {
     const theme = useTheme();
     const selectedColor = theme.colors[color];
@@ -37,7 +37,7 @@ export default function CircleButton({
             type="button"
             aria-label={ariaLabel}
             onClick={onClick}
-            css={css}
+            css={styledCss}
         >
             {type === 'arrow' ? (
                 <ArrowIcon
