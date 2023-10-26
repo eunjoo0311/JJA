@@ -5,11 +5,5 @@
             { "runtime": "automatic", "importSource": "@emotion/react" }
         ]
     ],
-    "plugins": [
-        "@emotion/babel-plugin",
-        [
-            "@babel/plugin-transform-react-jsx",
-            { "pragma": "jsx", "pragmaFrag": "Fragment" }
-        ]
-    ]
+    "plugins": ["@emotion/babel-plugin"]
 }
