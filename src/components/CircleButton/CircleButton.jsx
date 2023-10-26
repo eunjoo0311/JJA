@@ -73,7 +73,7 @@ export default function CircleButton({
             type="button"
             aria-label={ariaLabel}
             onClick={onClick}
-            className={cssType && `css-${styledCss[cssType].name}`}
+            css={cssType && styledCss[cssType]}
         >
             {type === 'arrow' ? (
                 <ArrowIcon

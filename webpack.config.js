@@ -57,6 +57,7 @@ module.exports = {
     },
     optimization: {
         minimize: true,
+        sideEffects: false,
         minimizer: [
             new ImageMinimizerPlugin({
                 test: /\.(png|jpe?g|gif)$/,
