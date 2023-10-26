@@ -117,12 +117,6 @@ export const LeftPage = styled(PageBox)`
     }
 `;
 
-export const menuButtonCss = css`
-    position: absolute;
-    top: 74px;
-    right: 34px;
-`;
-
 export const RightPage = styled(PageBox)`
     position: relative;
     padding: 74px 116px;
@@ -231,10 +225,6 @@ export const PageNum = styled.p`
     @media screen and (max-width: 1024px) {
         bottom: 22px;
     }
-`;
-
-export const prevButtonCss = css`
-    transform: rotate(180deg);
 `;
 
 export const PptImgBox = styled.article`

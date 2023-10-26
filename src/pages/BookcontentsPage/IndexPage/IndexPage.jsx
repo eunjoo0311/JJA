@@ -90,7 +90,7 @@ export default function IndexPage() {
                                 onClick={e => {
                                     handleClickChapterButton(indexData[0]);
                                 }}
-                                styledCss={menuButtonCss}
+                                cssType="indexMenu"
                             />
                         </PageBox>
                     </li>
@@ -105,7 +105,7 @@ export default function IndexPage() {
                         onClick={() => {
                             navigate('/');
                         }}
-                        styledCss={backButtonCss}
+                        cssType="back"
                     />
                 )}
             </BookBox>

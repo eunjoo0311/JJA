@@ -168,7 +168,7 @@ export default function ChapterPage() {
                         color={selectedColor}
                         ariaLabel="목차 확인 버튼"
                         onClick={onClickMenu}
-                        styledCss={menuButtonCss}
+                        cssType="menu"
                     />
                 </LeftPage>
                 <RightPage>
@@ -216,7 +216,7 @@ export default function ChapterPage() {
                             color={selectedColor}
                             ariaLabel="이전 단락 버튼"
                             onClick={onClickPrevButton}
-                            styledCss={prevButtonCss}
+                            cssType="prev"
                         />
                     </nav>
                 </RightPage>

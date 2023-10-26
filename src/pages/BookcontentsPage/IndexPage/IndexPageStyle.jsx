@@ -317,25 +317,6 @@ export const PageBox = styled.div`
     }
 `;
 
-export const menuButtonCss = css`
-    position: absolute;
-    top: 74px;
-    right: 34px;
-    transform: translateZ(2px);
-
-    @media (max-width: 1024px) {
-        top: auto;
-        bottom: 20px;
-        right: 34px;
-    }
-
-    @media (max-width: 1024px) {
-        top: auto;
-        bottom: 20px;
-        right: 34px;
-    }
-`;
-
 export const BookCoverBack = styled.div`
     width: 100%;
     height: 100%;
@@ -375,12 +356,4 @@ export const BookCoverBack = styled.div`
             );
         }
     }
-`;
-
-export const backButtonCss = css`
-    position: absolute;
-    top: 50%;
-    left: -1186px;
-    z-index: 100;
-    transform: rotate(180deg) translate3d(0, 50%, 2px);
 `;
